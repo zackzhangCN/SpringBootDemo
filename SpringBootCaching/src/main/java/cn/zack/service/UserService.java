@@ -11,10 +11,17 @@ public interface UserService {
     /**
      * 根据userId获取user信息
      *
-     * @param userId
+     * @param id
      * @return
      */
-    User getUserByUserId(Long userId);
+    User getUserByUserId(String id);
+
+    /**
+     * 新增user
+     *
+     * @param user
+     */
+    String addUser(User user);
 
     /**
      * 更新user信息
@@ -29,5 +36,5 @@ public interface UserService {
      *
      * @param userId
      */
-    void deleteUserByUserId(Long userId);
+    String deleteUserByUserId(String userId);
 }

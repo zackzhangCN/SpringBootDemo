@@ -6,7 +6,10 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author zack
- * 开启缓存支持(默认关闭)
+ * <p>
+ * 使用@EnableCaching开启缓存支持(默认关闭)
+ * 允许通过redis缓存数据
+ * </p>
  */
 @Configuration
 @EnableCaching

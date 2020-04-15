@@ -3,10 +3,7 @@ package cn.zack.controller;
 import cn.zack.pojo.User;
 import cn.zack.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author zack
@@ -27,9 +24,21 @@ public class UserController {
      * @return
      */
     @GetMapping(path = "findById/{userId}")
-    public User getUserByUserId(@PathVariable("userId") Long userId) {
+    public User getUserByUserId(@PathVariable("userId") String userId) {
         User user = userService.getUserByUserId(userId);
         return user;
+    }
+
+    /**
+     * 新增user
+     *
+     * @param user
+     * @return
+     */
+    @PostMapping(path = "addUser")
+    public String addUser(@RequestBody User user) {
+        String response = userService.addUser(user);
+        return response;
     }
 
 }

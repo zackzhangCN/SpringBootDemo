@@ -12,6 +12,7 @@ import java.io.Serializable;
  * user实体类
  * 使用@Entity声明为一个实体类
  * 使用@Table声明表映射关系
+ * 实现序列化接口, 便于数据传输
  */
 @Data
 @NoArgsConstructor
@@ -21,12 +22,13 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     /**
-     * 声明此字段为数据库主键, 主键维护方式交由程序控制
+     * 声明此字段为数据库主键, 主键自增
      */
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private Long userId;
+    private Long Id;
 
+    private String userId;
     private String username;
     private String password;
     private String gender;
