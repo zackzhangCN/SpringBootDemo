@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  application:
+    # 应用名
+    name: SpringBootCaching
+  datasource:
+    # mysql驱动
+    driver-class-name: com.mysql.jdbc.Driver
+    # mysql地址以及数据库名
+    url: jdbc:mysql://127.0.0.1:3306/springbootcaching?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL
+    username: root
+    password: root
+  jpa:
+    # jpa使用的数据库类型
+    database: mysql
+    # 打印sql
+    show-sql: true
+    # 每次启动时检查表结构, 有变更就修改
+    hibernate:
+      ddl-auto: update
+  redis:
+    # 选择要使用哪个redis数据库
+    database: 0
+    port: 6379
+    # redis数据库连接密码
+    password: root
