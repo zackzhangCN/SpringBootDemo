@@ -18,6 +18,18 @@ public class UserController {
     private UserService userService;
 
     /**
+     * 新增user
+     *
+     * @param user
+     * @return
+     */
+    @PostMapping(path = "addUser")
+    public User addUser(@RequestBody User user) {
+        User user1 = userService.addUser(user);
+        return user1;
+    }
+
+    /**
      * 根据userId获取user信息
      *
      * @param userId
@@ -30,14 +42,25 @@ public class UserController {
     }
 
     /**
-     * 新增user
+     * 修改user
      *
      * @param user
      * @return
      */
-    @PostMapping(path = "addUser")
-    public String addUser(@RequestBody User user) {
-        String response = userService.addUser(user);
+    @PostMapping(path = "updateUser")
+    public User updateUser(@RequestBody User user) {
+        User user1 = userService.updateUser(user);
+        return user1;
+    }
+
+    /**
+     * 根据userId删除user
+     * @param userId
+     * @return
+     */
+    @GetMapping(path = "deleteUser/{userId}")
+    public String deleteUser(@PathVariable("userId") String userId) {
+        String response = userService.deleteUserByUserId(userId);
         return response;
     }
 

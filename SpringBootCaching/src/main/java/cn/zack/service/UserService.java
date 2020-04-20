@@ -9,19 +9,19 @@ import cn.zack.pojo.User;
 public interface UserService {
 
     /**
+     * 新增user
+     *
+     * @param user
+     */
+    User addUser(User user);
+
+    /**
      * 根据userId获取user信息
      *
      * @param id
      * @return
      */
     User getUserByUserId(String id);
-
-    /**
-     * 新增user
-     *
-     * @param user
-     */
-    String addUser(User user);
 
     /**
      * 更新user信息

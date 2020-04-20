@@ -4,6 +4,8 @@ import cn.zack.jpa.UserJpaRepository;
 import cn.zack.pojo.User;
 import cn.zack.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,24 @@ public class UserServiceImpl implements UserService {
      */
     @Autowired
     private UserJpaRepository userJpaRepository;
+
+    /**
+     * 新增user
+     *
+     * @param user
+     */
+    @Override
+    public User addUser(User user) {
+        // 先查询数据库中是否存在此条数据
+        User byUserId = userJpaRepository.findByUserId(user.getUserId());
+        // 不存在, 插入数据库
+        if (byUserId == null) {
+            User user1 = userJpaRepository.save(user);
+            return user1;
+        } else {
+            return null;
+        }
+    }
 
     /**
      * 根据唯一Id获取user信息
@@ -39,44 +59,30 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * 新增user
-     *
-     * @param user
-     */
-    @Override
-    public String addUser(User user) {
-        // 返回报文
-        String response;
-        // 先查询数据库中是否存在此条数据
-        User byUserId = userJpaRepository.findByUserId(user.getUserId());
-        // 不存在, 直接插入数据库
-        if (byUserId == null) {
-            userJpaRepository.save(user);
-            response = "OK";
-        } else {
-            response = "FAIL";
-        }
-        return response;
-    }
-
-    /**
      * 更新user信息
+     * 使用@CachePut将被更新的用户信息同步到redis
      *
      * @param user
      * @return
      */
     @Override
+    @CachePut(value = "user", key = "#user.userId")
     public User updateUser(User user) {
+        // 先删除, 再插入(或者在userJpaRepository写一条更新sql)
+        userJpaRepository.deleteByUserId(user.getUserId());
         User user1 = userJpaRepository.save(user);
         return user1;
     }
 
     /**
      * 根据user唯一userId删除user
+     * 使用@CacheEvict将此key在redis中的value删除
+     *
      * @param userId
      * @return
      */
     @Override
+    @CacheEvict(value = "user", key = "#userId")
     public String deleteUserByUserId(String userId) {
         String response;
         Integer integer = userJpaRepository.deleteByUserId(userId);
