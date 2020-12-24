@@ -1,7 +1,7 @@
 package cn.zack.service.impl;
 
 import cn.zack.jpa.UserJpaRepository;
-import cn.zack.pojo.User;
+import cn.zack.entity.User;
 import cn.zack.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;

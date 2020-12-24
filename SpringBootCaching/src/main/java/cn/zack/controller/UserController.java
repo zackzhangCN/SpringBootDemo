@@ -1,6 +1,6 @@
 package cn.zack.controller;
 
-import cn.zack.pojo.User;
+import cn.zack.entity.User;
 import cn.zack.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

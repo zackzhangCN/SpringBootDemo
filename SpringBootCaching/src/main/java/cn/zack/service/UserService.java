@@ -1,6 +1,6 @@
 package cn.zack.service;
 
-import cn.zack.pojo.User;
+import cn.zack.entity.User;
 
 /**
  * @author zack

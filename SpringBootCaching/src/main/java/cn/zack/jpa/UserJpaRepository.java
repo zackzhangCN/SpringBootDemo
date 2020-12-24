@@ -1,6 +1,6 @@
 package cn.zack.jpa;
 
-import cn.zack.pojo.User;
+import cn.zack.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

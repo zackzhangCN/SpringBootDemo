@@ -1,6 +1,6 @@
 package cn.zack.controller;
 
-import cn.zack.pojo.User;
+import cn.zack.entity.User;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

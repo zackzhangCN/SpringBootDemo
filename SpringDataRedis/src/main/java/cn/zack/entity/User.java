@@ -1,4 +1,4 @@
-package cn.zack.pojo;
+package cn.zack.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,6 @@ import java.io.Serializable;
 
 /**
  * @author zack
- * 实现序列化接口
  */
 @Data
 @NoArgsConstructor

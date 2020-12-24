@@ -1,4 +1,4 @@
-package cn.zack.pojo;
+package cn.zack.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
