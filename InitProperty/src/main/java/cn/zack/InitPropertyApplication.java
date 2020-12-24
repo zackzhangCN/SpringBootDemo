@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class InitPropertyApplication {
     public static void main(String[] args) {
-        // 创建一个springApplication, 在启动时添加加载自定义配置, 控制configuration是否生效
+        // 创建一个springApplication, 在启动时加载自定义配置, 控制注入条件
         SpringApplication application = new SpringApplication(InitPropertyApplication.class);
         application.addInitializers(new InitPropertyConfig());
         application.run(args);

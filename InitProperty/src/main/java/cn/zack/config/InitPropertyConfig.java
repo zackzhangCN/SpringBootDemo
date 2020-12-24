@@ -27,8 +27,10 @@ public class InitPropertyConfig implements ApplicationContextInitializer<Configu
         // 当profile为dev时, 只注入service1, 当profile为pro时, 只注入service2
         if (thisActiveProfile.equals("dev")) {
             map.put("flag", "service1");
-        } else {
+        } else if (thisActiveProfile.equals("pro")) {
             map.put("flag", "service2");
+        } else {
+            map.put("flag", "");
         }
         MapPropertySource propertySource = new MapPropertySource("myFlag", map);
         configurableApplicationContext.getEnvironment().getPropertySources().addLast(propertySource);
