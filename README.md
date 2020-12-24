@@ -6,6 +6,7 @@
 - ###### SpringDataRedis:
     SpringBoot整合redis
 - ###### InitProperty:
-    SpringBoot启动时的自定义配置
+    SpringBoot的条件注解@ConditionalOnProperty
+    控制configuration是否生效.
     
     eg: 根据不同环境, 自动选择注入不同的bean
