@@ -10,7 +10,8 @@
 		<module>SpringBootCaching</module>
         <module>SpringDataRedis</module>
 		<module>InitProperty</module>
-	</modules>
+        <module>Conditional</module>
+    </modules>
 
 	<!--pom包-->
 	<packaging>pom</packaging>
