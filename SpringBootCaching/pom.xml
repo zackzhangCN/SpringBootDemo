@@ -43,7 +43,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.4</version>
+            <version>1.2.83</version>
         </dependency>
         <!--lombok, 简化实体类get/set/构造函数等等-->
         <dependency>
